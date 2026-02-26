@@ -17,27 +17,27 @@ public class LoggingAspect {
 
 	public static final Logger LOGGER=LoggerFactory.getLogger(LoggingAspect.class);
 	
-	@Before("execution (* com.telusko.springbootrest.service.JobService.getJob*(..)) || execution(* com.telusko.springbootrest.service.JobService.updateJob*(..))")
+	@Before("execution (* com.tess.springbootrest.service.JobService.getJob*(..)) || execution(* com.tess.springbootrest.service.JobService.updateJob*(..))")
 	public void logMethodCall(JoinPoint jp) {
 		LOGGER.info("Method Called "+jp.getSignature().getName());
 	}
 	
 	
 	
-	@After("execution (* com.telusko.springbootrest.service.JobService.getJob*(..)) || execution(* com.telusko.springbootrest.service.JobService.updateJob*(..))")
+	@After("execution (* com.tess.springbootrest.service.JobService.getJob*(..)) || execution(* com.tess.springbootrest.service.JobService.updateJob*(..))")
 	public void logMethodExecuted(JoinPoint jp) {
 		LOGGER.info("Method Executed "+jp.getSignature().getName());
 	}
 	
 	
-	@AfterThrowing("execution (* com.telusko.springbootrest.service.JobService.getJob*(..)) || execution(* com.telusko.springbootrest.service.JobService.updateJob*(..))")
+	@AfterThrowing("execution (* com.tess.springbootrest.service.JobService.getJob*(..)) || execution(* com.tess.springbootrest.service.JobService.updateJob*(..))")
 	public void logMethodCrashed(JoinPoint jp) {
 		LOGGER.info("Method has some issues "+jp.getSignature().getName());
 	}
 	
 	
 	
-	@AfterReturning("execution (* com.telusko.springbootrest.service.JobService.getJob*(..)) || execution(* com.telusko.springbootrest.service.JobService.updateJob*(..))")
+	@AfterReturning("execution (* com.tess.springbootrest.service.JobService.getJob*(..)) || execution(* com.tess.springbootrest.service.JobService.updateJob*(..))")
 	public void logMethodExecutedSuccess(JoinPoint jp) {
 		LOGGER.info("Method Executed Successfully "+jp.getSignature().getName());
 	}
